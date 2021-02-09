@@ -13,6 +13,26 @@ namespace ConsoleUI
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager colorManager = new ColorManager(new EfColorDal());
 
+            //Test(carManager);
+
+            foreach (var car in carManager.GetCarDetails())
+            {
+
+                Console.WriteLine("{0} {1} ", "Marka :", car.BrandName);
+                Console.WriteLine("{0} {1} ", "Model :", car.CarName);
+                Console.WriteLine("{0} {1} ", "Renk :", car.ColorName);
+                Console.WriteLine("{0} {1} ", "Yıl :", car.ModelYear);
+                Console.WriteLine("{0} {1} ", "Açıklama :", car.Description);
+                Console.WriteLine("-------------------------------------------");
+
+            }
+
+
+
+        }
+
+        private static void Test(CarManager carManager)
+        {
             Console.WriteLine("Bütün araçları göre listele");
             Console.WriteLine("");
             foreach (var car in carManager.GetAll())
@@ -35,6 +55,7 @@ namespace ConsoleUI
             {
                 Console.WriteLine(car.Description);
             }
+
             Console.WriteLine("");
             Console.WriteLine("Brand listele");
             Console.WriteLine("");
@@ -48,8 +69,6 @@ namespace ConsoleUI
             //    Description = "test"
             //});
             //carManager.Delete(new Car { Id = 18 });
-
-
         }
     }
 }

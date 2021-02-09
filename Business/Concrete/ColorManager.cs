@@ -16,9 +16,10 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
-        public List<Color> GetById(int id)
+
+        public Color GetById(int id)
         {
-            return _colorDal.GetAll(col => col.Id == id);
+            throw new NotImplementedException();
         }
 
         public void Add(Color color)

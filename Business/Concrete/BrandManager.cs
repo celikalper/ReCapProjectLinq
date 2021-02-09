@@ -20,32 +20,24 @@ namespace Business.Concrete
             return _brandDal.GetAll();
         }
 
-        public List<Brand> GetById(int id)
+        public Brand GetById(int id)
         {
-            return _brandDal.GetAll(b => b.Id == id);
+            throw new NotImplementedException();
         }
 
         public void Add(Brand brand)
         {
-            if (brand.BrandName.Length>=2)
-            {
-                _brandDal.Add(brand);
-                Console.WriteLine("Marak başarıyla eklendi");
-            }
-            else
-            {
-                Console.WriteLine("Marka adı en az iki karakterden oluşmalı.");
-            }
+            throw new NotImplementedException();
         }
 
         public void Update(Brand brand)
         {
-            _brandDal.Update(brand);
+            throw new NotImplementedException();
         }
 
         public void Delete(Brand brand)
         {
-            _brandDal.Delete(brand);
+            throw new NotImplementedException();
         }
     }
 }
