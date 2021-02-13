@@ -15,17 +15,20 @@ namespace ConsoleUI
 
             //Test(carManager);
 
-            foreach (var car in carManager.GetCarDetails())
+            var result = carManager.GetById(6);
+
+            if (result.Success == true)
             {
-
-                Console.WriteLine("{0} {1} ", "Marka :", car.BrandName);
-                Console.WriteLine("{0} {1} ", "Model :", car.CarName);
-                Console.WriteLine("{0} {1} ", "Renk :", car.ColorName);
-                Console.WriteLine("{0} {1} ", "Yıl :", car.ModelYear);
-                Console.WriteLine("{0} {1} ", "Açıklama :", car.Description);
+                Console.WriteLine("{0} {1}", "Model :", result.Data.CarName);
+                Console.WriteLine("{0} {1}", "Model :", result.Data.Description);
                 Console.WriteLine("-------------------------------------------");
-
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+
+
 
 
 
@@ -35,7 +38,7 @@ namespace ConsoleUI
         {
             Console.WriteLine("Bütün araçları göre listele");
             Console.WriteLine("");
-            foreach (var car in carManager.GetAll())
+            foreach (var car in carManager.GetAll().Data)
             {
                 Console.WriteLine(car.Description);
             }
@@ -43,7 +46,7 @@ namespace ConsoleUI
             Console.WriteLine("");
             Console.WriteLine("BrandId'ye göre listele");
             Console.WriteLine("");
-            foreach (var car in carManager.GetCarsByBrandId(6))
+            foreach (var car in carManager.GetCarsByBrandId(6).Data)
             {
                 Console.WriteLine(car.Description);
             }
@@ -51,7 +54,7 @@ namespace ConsoleUI
             Console.WriteLine("");
             Console.WriteLine("ColorId'ye göre listele");
             Console.WriteLine("");
-            foreach (var car in carManager.GetCarsByColorId(4))
+            foreach (var car in carManager.GetCarsByColorId(4).Data)
             {
                 Console.WriteLine(car.Description);
             }
