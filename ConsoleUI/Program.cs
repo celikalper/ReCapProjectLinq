@@ -12,9 +12,31 @@ namespace ConsoleUI
             CarManager carManager = new CarManager(new EfCarDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager colorManager = new ColorManager(new EfColorDal());
-
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
             //Test(carManager);
+            //GetByIdTest(carManager);
 
+            var result = rentalManager.GetRentalDetails();
+
+            foreach (var r in result.Data)
+            {
+                Console.WriteLine(r.FirstName);
+                Console.WriteLine(r.LastName);
+                Console.WriteLine(r.CompanyName);
+                Console.WriteLine(r.CarName);
+                Console.WriteLine(r.Description);
+                Console.WriteLine(r.DailyPrice);
+                Console.WriteLine(r.RentDate);
+                Console.WriteLine(r.ReturnDate);
+                Console.WriteLine("----------------------------------------");
+
+            }
+
+
+        }
+
+        private static void GetByIdTest(CarManager carManager)
+        {
             var result = carManager.GetById(6);
 
             if (result.Success == true)
@@ -27,11 +49,6 @@ namespace ConsoleUI
             {
                 Console.WriteLine(result.Message);
             }
-
-
-
-
-
         }
 
         private static void Test(CarManager carManager)
