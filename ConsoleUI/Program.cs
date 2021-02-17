@@ -16,22 +16,21 @@ namespace ConsoleUI
             //Test(carManager);
             //GetByIdTest(carManager);
 
-            var result = rentalManager.GetRentalDetails();
+            //var result = rentalManager.GetRentalDetails();
 
-            foreach (var r in result.Data)
-            {
-                Console.WriteLine(r.FirstName);
-                Console.WriteLine(r.LastName);
-                Console.WriteLine(r.CompanyName);
-                Console.WriteLine(r.CarName);
-                Console.WriteLine(r.Description);
-                Console.WriteLine(r.DailyPrice);
-                Console.WriteLine(r.RentDate);
-                Console.WriteLine(r.ReturnDate);
-                Console.WriteLine("----------------------------------------");
+            //foreach (var r in result.Data)
+            //{
+            //    Console.WriteLine(r.FirstName);
+            //    Console.WriteLine(r.LastName);
+            //    Console.WriteLine(r.CompanyName);
+            //    Console.WriteLine(r.CarName);
+            //    Console.WriteLine(r.Description);
+            //    Console.WriteLine(r.DailyPrice);
+            //    Console.WriteLine(r.RentDate);
+            //    Console.WriteLine(r.ReturnDate);
+            //    Console.WriteLine("----------------------------------------");
 
-            }
-
+            //}
 
         }
 
