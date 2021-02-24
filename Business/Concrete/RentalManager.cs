@@ -1,10 +1,14 @@
 ﻿using System.Collections.Generic;
 using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConcerns.Validation.FluentValidation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
+using FluentValidation;
 
 namespace Business.Concrete
 {
@@ -29,12 +33,11 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), "Kiralanan araç listesi");
         }
 
+        [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
-            //if (rental.ReturnDate == null)
-            //{
-            //    return new ErrorResult(Messages.RentalAddInvalid);
-            //}
+
+            //Business codes
 
             _rentalDal.Add(rental);
             return new SuccessResult(Messages.RentalAdded);
